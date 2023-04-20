@@ -1,5 +1,17 @@
+#pragma once
 #include <iostream>
+#include <vector>
 
-class Chain
+#include "chain.h"
+#include "block.h"
+
+namespace blockchain
 {
-};
+    class Chain
+    {
+    public:
+        std::vector<blockchain::Block> blocks;
+
+        Chain();
+    };
+}

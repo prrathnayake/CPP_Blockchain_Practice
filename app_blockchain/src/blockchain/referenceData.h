@@ -1,5 +1,9 @@
+#pragma once
 #include <iostream>
 
-class ReferenceData
+namespace blockchain
 {
-};
+    class ReferenceData
+    {
+    };
+}

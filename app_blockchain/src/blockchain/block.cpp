@@ -2,8 +2,11 @@
 
 #include "block.h"
 
-blockchain::Block::Block(std::string previousHash, blockchain::ReferenceData referenceData, std::string timestamp){
+blockchain::Block::Block(std::string previousHash, blockchain::Transtraction transtraction, std::string timestamp)
+{
     preHash = previousHash;
-    refData = referenceData;
+    trans = transtraction;
     ts = timestamp;
 }
+
+void blockchain::Block::generateHash() {}

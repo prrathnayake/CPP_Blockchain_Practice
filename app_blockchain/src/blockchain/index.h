@@ -1,5 +1,5 @@
 #pragma once
 #include "block.h"
-#include "chain.h"
-#include "referenceData.h"
-
+#include "blockchain.h"
+#include "database.h"
+#include "transtraction.h"

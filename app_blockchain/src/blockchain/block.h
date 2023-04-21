@@ -2,18 +2,21 @@
 #include <iostream>
 
 #include "block.h"
-#include "referenceData.h"
+#include "database.h"
+#include "transtraction.h"
 
 namespace blockchain
 {
     class Block
     {
-    public:
+    private:
         int nonce;
         std::string preHash;
-        blockchain::ReferenceData refData;
+        blockchain::Transtraction trans;
         std::string ts;
 
-        Block(std::string previousHash, blockchain::ReferenceData referenceData, std::string timestamp);
+    public:
+        Block(std::string previousHash, blockchain::Transtraction transtraction, std::string timestamp);
+        void generateHash();
     };
 }

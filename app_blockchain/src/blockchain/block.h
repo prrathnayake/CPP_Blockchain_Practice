@@ -20,5 +20,7 @@ namespace blockchain
         void generateHash();
         std::string toString();
         std::string toStringWithTranstraction();
+        int getNonce();
+        void setNonce(int nonce);
     };
 }

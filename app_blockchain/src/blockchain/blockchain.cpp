@@ -27,13 +27,20 @@ void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction trans
         hash = getHash(trans.toString());
     }
 
-    blockchain::Block block(hash, transtraction, "timestamp");
-    blocks.push_back(block);
-    for (int i = 0; i < databases.size(); i++)
+    if (transtraction.isValidateSignature())
     {
-        databases[i].addData(transtraction.getKey(), transtraction.getValue());
+        blockchain::Block block(hash, transtraction, "timestamp");
+        blocks.push_back(block);
+        for (int i = 0; i < databases.size(); i++)
+        {
+            databases[i].addData(transtraction.getKey(), transtraction.getValue());
+        }
+        hash = mine(block);
     }
-    hash = getHash(transtraction.toString());
+    else
+    {
+        std::cout << "Transtraction is not valid\n";
+    }
 }
 
 void blockchain::Blockchain::printData(blockchain::Database database)
@@ -69,4 +76,28 @@ std::string blockchain::Blockchain::getHash(std::string data)
 
     // Print the hash
     return hex_hash;
+}
+
+std::string blockchain::Blockchain::mine(blockchain::Block block)
+{
+    std::cout << "mining.......\n";
+    std::string hash = getHash(block.toString());
+    int nonce = block.getNonce();
+
+    bool loop = true;
+    while (loop)
+    {
+        if (hash.rfind("0000", 0) == 0)
+        {
+            block.setNonce(nonce);
+            loop = false;
+            return hash;
+        }
+        else
+        {
+            hash = getHash(block.toString());
+            nonce++;
+            block.setNonce(nonce);
+        }
+    }
 }

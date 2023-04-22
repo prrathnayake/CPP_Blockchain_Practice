@@ -22,3 +22,13 @@ std::string blockchain::Block::toStringWithTranstraction()
     std::string str = "Nonce : " + std::to_string(nonce) + "\n" + "Pre Hash : " + preHash + "\n" + "Timestamp : " + ts + "\n" + "[Transtraction]" + "\n" + trans.toString() + "\n";
     return str;
 }
+
+int blockchain::Block::getNonce()
+{
+    return nonce;
+}
+
+void blockchain::Block::setNonce(int n)
+{
+    nonce = n;
+}

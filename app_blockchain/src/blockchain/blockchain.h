@@ -20,5 +20,6 @@ namespace blockchain
         void printData(blockchain::Database database);
         void printBlockchain();
         std::string getHash(std::string data);
+        std::string mine(blockchain::Block block);
     };
 }

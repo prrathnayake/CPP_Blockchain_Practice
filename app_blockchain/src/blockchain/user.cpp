@@ -52,3 +52,7 @@ std::map<std::string, std::string> blockchain::User::generateKeyPair()
 std::string blockchain::User::getPublicKey(){
     return publicKey;
 }
+
+std::string blockchain::User::getPrivateKey(){
+    return privateKey;
+}

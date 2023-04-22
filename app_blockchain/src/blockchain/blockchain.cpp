@@ -16,7 +16,7 @@ void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction trans
 {
     if (blocks.size() == 0)
     {
-        blockchain::Transtraction trans("publicKey", "key", "0");
+        blockchain::Transtraction trans("privateKey", "publicKey", "key", "0");
         blockchain::Block bl("preHash", trans, "timestamp");
         blocks.push_back(bl);
 
@@ -49,7 +49,7 @@ void blockchain::Blockchain::printBlockchain()
     for (int i = 0; i < blocks.size(); i++)
     {
         std::cout << "Block : " << i << "\n";
-        std::cout << blocks[i].toString() << "\n";
+        std::cout << blocks[i].toStringWithTranstraction() << "\n";
     }
 }
 

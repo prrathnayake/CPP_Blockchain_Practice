@@ -6,6 +6,7 @@ int main()
 {
     blockchain::User user("pasan");
     std::string publicKey = user.getPublicKey();
+    std::string privateKey = user.getPrivateKey();
 
     blockchain::Database database1;
     blockchain::Database database2;
@@ -16,13 +17,19 @@ int main()
     blockchain.addNewDatabase(database2);
     blockchain.addNewDatabase(database3);
 
-    blockchain::Transtraction transtraction1(publicKey, "key1", "10");
+    blockchain::Transtraction transtraction1(privateKey, publicKey, "key1", "10");
     blockchain.addNewTranstraction(transtraction1);
+    
+    if(transtraction1.isValidateSignature()){
+        std::cout << "Valid\n";
+    }else{
+         std::cout << "Not Valid\n";
+    }
 
-    blockchain::Transtraction transtraction2(publicKey, "key2", "20");
+    blockchain::Transtraction transtraction2(privateKey, publicKey, "key2", "20");
     blockchain.addNewTranstraction(transtraction2);
 
-    blockchain::Transtraction transtraction3(publicKey, "key3", "30");
+    blockchain::Transtraction transtraction3(privateKey, publicKey, "key3", "30");
     blockchain.addNewTranstraction(transtraction3);
 
     // blockchain.printData(database1);

@@ -5,8 +5,15 @@ file(GLOB files
      "*/*.cpp"
 )
 
+find_package(OpenSSL REQUIRED)
+
 add_library(${PROJECT_NAME} SHARED ${files})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
+
+target_link_libraries( ${PROJECT_NAME}
+     OpenSSL::SSL
+     OpenSSL::Crypto
+)
 
 install(
      DIRECTORY "${CMAKE_SOURCE_DIR}/blockchain" 

@@ -12,14 +12,18 @@ blockchain::Transtraction::Transtraction(std::string c, std::string k, std::stri
     value = v;
 }
 
-std::string blockchain::Transtraction::toString() {
-    return "";
+std::string blockchain::Transtraction::toString()
+{
+    std::string str = "ChangeBy : " + changeBy + "\n" + "Key : " + key + "\n" + "Value : " + "\n";
+    return str;
 }
 
-std::string blockchain::Transtraction::getKey(){
+std::string blockchain::Transtraction::getKey()
+{
     return key;
 }
 
-std::string blockchain::Transtraction::getValue(){
+std::string blockchain::Transtraction::getValue()
+{
     return value;
 }

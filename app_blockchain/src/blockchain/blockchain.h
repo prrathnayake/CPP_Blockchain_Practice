@@ -10,7 +10,7 @@ namespace blockchain
     class Blockchain
     {
     private:
-        int index = 1;
+    std::string hash;
         std::vector<blockchain::Block> blocks;
         std::vector<blockchain::Database> databases;
 
@@ -18,5 +18,7 @@ namespace blockchain
         void addNewDatabase(blockchain::Database database);
         void addNewTranstraction(blockchain::Transtraction transtraction);
         void printData(blockchain::Database database);
+        void printBlockchain();
+        std::string getHash(std::string data);
     };
 }

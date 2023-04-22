@@ -4,6 +4,9 @@
 
 int main()
 {
+    blockchain::User user("pasan");
+    std::string publicKey = user.getPublicKey();
+
     blockchain::Database database1;
     blockchain::Database database2;
     blockchain::Database database3;
@@ -13,16 +16,17 @@ int main()
     blockchain.addNewDatabase(database2);
     blockchain.addNewDatabase(database3);
 
-    blockchain::Transtraction transtraction1("publicKey", "key1", "10");
+    blockchain::Transtraction transtraction1(publicKey, "key1", "10");
     blockchain.addNewTranstraction(transtraction1);
 
-    blockchain::Transtraction transtraction2("publicKey", "key2", "20");
+    blockchain::Transtraction transtraction2(publicKey, "key2", "20");
     blockchain.addNewTranstraction(transtraction2);
 
-    blockchain::Transtraction transtraction3("publicKey", "key3", "30");
+    blockchain::Transtraction transtraction3(publicKey, "key3", "30");
     blockchain.addNewTranstraction(transtraction3);
 
-    blockchain.printData(database1);
+    // blockchain.printData(database1);
+    blockchain.printBlockchain();
 
     return 0;
 }

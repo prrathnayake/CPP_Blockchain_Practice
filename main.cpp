@@ -10,8 +10,8 @@ int main()
 
     blockchain::Blockchain blockchain;
     blockchain.addNewDatabase(database1);
-    // blockchain.addNewDatabase(database2);
-    // blockchain.addNewDatabase(database3);
+    blockchain.addNewDatabase(database2);
+    blockchain.addNewDatabase(database3);
 
     blockchain::Transtraction transtraction1("publicKey", "key1", "10");
     blockchain.addNewTranstraction(transtraction1);
@@ -22,7 +22,7 @@ int main()
     blockchain::Transtraction transtraction3("publicKey", "key3", "30");
     blockchain.addNewTranstraction(transtraction3);
 
-    database1.printData();
+    blockchain.printData(database1);
 
     return 0;
 }

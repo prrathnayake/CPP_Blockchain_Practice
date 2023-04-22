@@ -4,7 +4,6 @@
 void blockchain::Database::addData(std::string key, std::string value)
 {
     referenceDataMap[key] = value;
-    std::cout << size() << "\n";
 }
 
 int blockchain::Database::size()
@@ -14,10 +13,11 @@ int blockchain::Database::size()
 
 void blockchain::Database::printData()
 {
-    std::cout << "Reference Data | size = " << size() << "\n";
+    std::cout << "Database | size = " << size() << "\n";
     for (auto &pair :
          referenceDataMap)
     {
         std::cout << pair.first << " : " << pair.second << "\n";
     }
+    std::cout << "\n";
 }

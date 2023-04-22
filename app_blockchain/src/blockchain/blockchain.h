@@ -17,5 +17,6 @@ namespace blockchain
     public:
         void addNewDatabase(blockchain::Database database);
         void addNewTranstraction(blockchain::Transtraction transtraction);
+        void printData(blockchain::Database database);
     };
 }

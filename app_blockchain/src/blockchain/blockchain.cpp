@@ -32,3 +32,11 @@ void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction trans
         databases[i].addData(transtraction.getKey(), transtraction.getValue());
     }
 }
+
+void blockchain::Blockchain::printData(blockchain::Database database)
+{
+    for (int i = 0; i < databases.size(); i++)
+    {
+        databases[i].printData();
+    }
+}

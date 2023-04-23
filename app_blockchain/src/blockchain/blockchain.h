@@ -10,7 +10,7 @@ namespace blockchain
     class Blockchain
     {
     private:
-    std::string hash;
+        std::string hash;
         std::vector<blockchain::Block> blocks;
         std::vector<blockchain::Database> databases;
 

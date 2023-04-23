@@ -27,7 +27,7 @@ int main()
     blockchain.addNewTranstraction(transtraction3);
 
     // blockchain.printData(database1);
-    // blockchain.printBlockchain();
+    blockchain.printBlockchain();
 
     return 0;
 }

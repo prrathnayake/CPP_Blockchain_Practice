@@ -2,22 +2,16 @@
 
 #include "block.h"
 
-blockchain::Block::Block(std::string previousHash, blockchain::Transtraction transtraction, std::string timestamp)
+blockchain::Block::Block(std::string previousHash, std::vector<blockchain::Transtraction> transtractions, std::string timestamp)
 {
-    preHash = previousHash;
-    trans = transtraction;
-    ts = timestamp;
+    this->previousHash = previousHash;
+    this->transtractions = transtractions;
+    this->timestamp = timestamp;
 }
 
 std::string blockchain::Block::toString()
 {
-    std::string str = "Nonce : " + std::to_string(getNonce()) + "\n" + "Pre Hash : " + preHash + "\n" + "Timestamp : " + ts + "\n" + "[Transtraction]" + "\n";
-    return str;
-}
-
-std::string blockchain::Block::toStringWithTranstraction()
-{
-    std::string str = "Nonce : " + std::to_string(getNonce()) + "\n" + "Pre Hash : " + preHash + "\n" + "Timestamp : " + ts + "\n" + "[Transtraction]" + "\n" + trans.toString() + "\n";
+    std::string str = "Nonce : " + std::to_string(getNonce()) + "\n" + "Pre Hash : " + previousHash + "\n" + "Timestamp : " + timestamp + "\n" + "[Transtraction]" + "\n";
     return str;
 }
 

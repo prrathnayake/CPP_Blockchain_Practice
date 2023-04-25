@@ -13,6 +13,7 @@ namespace blockchain
         std::string timestamp;
         float amount;
         std::string signature;
+        
         Transtraction();
         Transtraction(std::string from, std::string to, float amount, std::string signature);
         std::string toString();

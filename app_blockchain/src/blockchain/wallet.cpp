@@ -2,10 +2,10 @@
 #include <openssl/rsa.h>
 #include <openssl/pem.h>
 
-#include "user.h"
+#include "wallet.h"
 #include "transtraction.h"
 
-blockchain::User::User(std::string userName)
+blockchain::Wallet::Wallet(std::string userName)
 {
     std::map<std::string, std::string> pair = generateKeyPair();
 
@@ -14,7 +14,7 @@ blockchain::User::User(std::string userName)
     publicKey = pair["publicKey"];
 }
 
-std::map<std::string, std::string> blockchain::User::generateKeyPair()
+std::map<std::string, std::string> blockchain::Wallet::generateKeyPair()
 {
     std::map<std::string, std::string> pair;
 
@@ -50,7 +50,7 @@ std::map<std::string, std::string> blockchain::User::generateKeyPair()
     return pair;
 }
 
-std::string blockchain::User::generateSignature(std::string data)
+std::string blockchain::Wallet::generateSignature(std::string data)
 {
     RSA *rsa = RSA_new();
     BIO *bio = BIO_new_mem_buf(privateKey.c_str(), -1);
@@ -74,13 +74,13 @@ std::string blockchain::User::generateSignature(std::string data)
     return signature;
 }
 
-void blockchain::User::createTranstraction(std::string to, float amount)
+void blockchain::Wallet::createTranstraction(std::string to, float amount)
 {
     blockchain::Transtraction transtraction(publicKey, to, amount, generateSignature(publicKey + to + std::to_string(amount)));
     sendToMemPool(transtraction);
 }
 
-void blockchain::User::sendToMemPool(blockchain::Transtraction transtraction)
+void blockchain::Wallet::sendToMemPool(blockchain::Transtraction transtraction)
 {
     std::cout << "Transtraction send to the MemPool\n";
 }

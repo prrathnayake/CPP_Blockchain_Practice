@@ -57,7 +57,7 @@ std::string blockchain::Blockchain::getHash(std::string data)
 std::string blockchain::Blockchain::mine(blockchain::Block block)
 {
     std::cout << "mining.......\n";
-    std::string hash = getHash(block.toStringWithTranstraction());
+    std::string hash = getHash(block.toString());
 
     bool loop = true;
     while (loop)
@@ -71,7 +71,7 @@ std::string blockchain::Blockchain::mine(blockchain::Block block)
         else
         {
             block.setNonce(block.getNonce() + 1);
-            hash = getHash(block.toStringWithTranstraction());
+            hash = getHash(block.toString());
         }
     }
 }

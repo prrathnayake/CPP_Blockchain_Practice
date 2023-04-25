@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
 #include "block.h"
 #include "transtraction.h"
@@ -10,14 +11,13 @@ namespace blockchain
     {
     private:
         int nonce = 0;
-        std::string preHash;
-        blockchain::Transtraction trans;
-        std::string ts;
+        std::string previousHash;
+        std::vector<blockchain::Transtraction> transtractions;
+        std::string timestamp;
 
     public:
-        Block(std::string previousHash, blockchain::Transtraction transtraction, std::string timestamp);
+        Block(std::string previousHash, std::vector<blockchain::Transtraction> transtractions, std::string timestamp);
         std::string toString();
-        std::string toStringWithTranstraction();
         int getNonce();
         void setNonce(int nonce);
     };

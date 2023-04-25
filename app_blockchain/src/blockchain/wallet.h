@@ -6,7 +6,7 @@
 
 namespace blockchain
 {
-    class User
+    class Wallet
     {
     private:
         std::string name;
@@ -14,7 +14,7 @@ namespace blockchain
 
     public:
         std::string publicKey;
-        User(std::string name);
+        Wallet(std::string name);
         std::map<std::string, std::string> generateKeyPair();
         void createTranstraction(std::string to, float amount);
         std::string generateSignature(std::string data);

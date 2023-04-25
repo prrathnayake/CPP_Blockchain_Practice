@@ -3,6 +3,7 @@
 #include <openssl/pem.h>
 
 #include "user.h"
+#include "transtraction.h"
 
 blockchain::User::User(std::string userName)
 {
@@ -49,10 +50,37 @@ std::map<std::string, std::string> blockchain::User::generateKeyPair()
     return pair;
 }
 
-std::string blockchain::User::getPublicKey(){
-    return publicKey;
+std::string blockchain::User::generateSignature(std::string data)
+{
+    RSA *rsa = RSA_new();
+    BIO *bio = BIO_new_mem_buf(privateKey.c_str(), -1);
+    rsa = PEM_read_bio_RSAPrivateKey(bio, &rsa, nullptr, nullptr);
+    BIO_free(bio);
+
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256(reinterpret_cast<const unsigned char *>(data.c_str()), data.size(), hash);
+
+    unsigned char signature_buf[RSA_size(rsa)];
+    unsigned int signature_len;
+    if (!RSA_sign(NID_sha256, hash, SHA256_DIGEST_LENGTH, signature_buf, &signature_len, rsa))
+    {
+        std::cerr << "Error: could not create signature" << std::endl;
+        RSA_free(rsa);
+    }
+
+    std::string signature = std::string(reinterpret_cast<const char *>(signature_buf), signature_len);
+    RSA_free(rsa);
+
+    return signature;
 }
 
-std::string blockchain::User::getPrivateKey(){
-    return privateKey;
+void blockchain::User::createTranstraction(std::string to, float amount)
+{
+    blockchain::Transtraction transtraction(publicKey, to, amount, generateSignature(publicKey + to + std::to_string(amount)));
+    sendToMemPool(transtraction);
+}
+
+void blockchain::User::sendToMemPool(blockchain::Transtraction transtraction)
+{
+    std::cout << "Transtraction send to the MemPool\n";
 }

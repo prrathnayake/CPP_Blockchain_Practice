@@ -8,22 +8,22 @@
 
 blockchain::Blockchain::Blockchain()
 {
-    blockchain::Transtraction trans("privateKey", "publicKey", "key", "0");
-    blockchain::Block bl("preHash", trans, "timestamp");
-    hash = mine(bl);
+    // blockchain::Transtraction trans("genesis", 100);
+    // blockchain::Block bl("preHash", trans, "timestamp");
+    // hash = mine(bl);
 }
 
 void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)
 {
-    if (transtraction.isValidateSignature())
-    {
-        blockchain::Block block(hash, transtraction, "timestamp");
-        hash = mine(block);
-    }
-    else
-    {
-        std::cout << "Transtraction is not valid\n";
-    }
+    // if (transtraction.isValidateSignature())
+    // {
+    //     blockchain::Block block(hash, transtraction, "timestamp");
+    //     hash = mine(block);
+    // }
+    // else
+    // {
+    //     std::cout << "Transtraction is not valid\n";
+    // }
 }
 
 void blockchain::Blockchain::printBlockchain()

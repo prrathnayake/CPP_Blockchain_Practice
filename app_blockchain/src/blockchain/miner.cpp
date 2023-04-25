@@ -1,0 +1,26 @@
+#include <iostream>
+#include <openssl/rsa.h>
+#include <openssl/pem.h>
+#include <openssl/err.h>
+#include <openssl/sha.h>
+
+#include "miner.h"
+
+bool blockchain::Miner::isValidateSignature(blockchain::Transtraction transtraction)
+{
+    // Load the public key from string
+    RSA *rsa = RSA_new();
+    BIO *bio = BIO_new_mem_buf(transtraction.from.c_str(), -1);
+    rsa = PEM_read_bio_RSAPublicKey(bio, &rsa, nullptr, nullptr);
+    BIO_free(bio);
+    std::string data = transtraction.from + transtraction.to + std::to_string(transtraction.amount);
+
+    // Compute the SHA-256 hash of the message
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256(reinterpret_cast<const unsigned char *>(data.c_str()), data.size(), hash);
+
+    // Verify the signature
+    int result = RSA_verify(NID_sha256, hash, SHA256_DIGEST_LENGTH, reinterpret_cast<const unsigned char *>(transtraction.signature.c_str()), transtraction.signature.size(), rsa);
+    RSA_free(rsa);
+    return result == 1;
+}

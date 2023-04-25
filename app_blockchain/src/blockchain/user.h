@@ -2,6 +2,8 @@
 #include <iostream>
 #include <map>
 
+#include "transtraction.h"
+
 namespace blockchain
 {
     class User
@@ -9,12 +11,13 @@ namespace blockchain
     private:
         std::string name;
         std::string privateKey;
-        std::string publicKey;
 
     public:
+        std::string publicKey;
         User(std::string name);
         std::map<std::string, std::string> generateKeyPair();
-        std::string getPublicKey();
-        std::string getPrivateKey();
+        void createTranstraction(std::string to, float amount);
+        std::string generateSignature(std::string data);
+        void sendToMemPool(blockchain::Transtraction transtraction);
     };
 }

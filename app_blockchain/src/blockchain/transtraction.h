@@ -6,21 +6,15 @@ namespace blockchain
 {
     class Transtraction
     {
-    private:
-        int TxID;
-        std::string PublicKey;
-        std::string timestamp;
-        std::string key;
-        std::string value;
-        std::string signature;
-
     public:
+        int TxID;
+        std::string from;
+        std::string to;
+        std::string timestamp;
+        float amount;
+        std::string signature;
         Transtraction();
-        Transtraction(std::string privateKey,std::string publicKey, std::string key, std::string value);
+        Transtraction(std::string from, std::string to, float amount, std::string signature);
         std::string toString();
-        std::string getKey();
-        std::string getValue();
-        std::string generateSignature(std::string privateKey);
-        bool isValidateSignature();
     };
 }

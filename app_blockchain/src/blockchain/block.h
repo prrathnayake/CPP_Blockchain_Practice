@@ -2,7 +2,6 @@
 #include <iostream>
 
 #include "block.h"
-#include "database.h"
 #include "transtraction.h"
 
 namespace blockchain

@@ -5,47 +5,24 @@
 #include "blockchain.h"
 #include "block.h"
 #include "transtraction.h"
-#include "database.h"
 
-void blockchain::Blockchain::addNewDatabase(blockchain::Database database)
+blockchain::Blockchain::Blockchain()
 {
-    databases.push_back(database);
+    blockchain::Transtraction trans("privateKey", "publicKey", "key", "0");
+    blockchain::Block bl("preHash", trans, "timestamp");
+    hash = mine(bl);
 }
 
 void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)
 {
-    if (blocks.size() == 0)
-    {
-        blockchain::Transtraction trans("privateKey", "publicKey", "key", "0");
-        blockchain::Block bl("preHash", trans, "timestamp");
-        hash = mine(bl);
-
-        for (int i = 0; i < databases.size(); i++)
-        {
-            databases[i].addData("key", "0");
-        }
-    }
-
     if (transtraction.isValidateSignature())
     {
         blockchain::Block block(hash, transtraction, "timestamp");
         hash = mine(block);
-        for (int i = 0; i < databases.size(); i++)
-        {
-            databases[i].addData(transtraction.getKey(), transtraction.getValue());
-        }
     }
     else
     {
         std::cout << "Transtraction is not valid\n";
-    }
-}
-
-void blockchain::Blockchain::printData(blockchain::Database database)
-{
-    for (int i = 0; i < databases.size(); i++)
-    {
-        databases[i].printData();
     }
 }
 

@@ -7,6 +7,7 @@ namespace blockchain
     class Transtraction
     {
     private:
+        int TxID;
         std::string PublicKey;
         std::string timestamp;
         std::string key;

@@ -3,21 +3,24 @@
 #include <map>
 
 #include "block.h"
+#include "blockchain.h"
 
 namespace blockchain
 {
     class Miner
     {
     private:
-        std::string name;
         std::string privateKey;
-        std::string publicKey;
 
     public:
+        std::string name;
+        std::string publicKey;
+        blockchain::Blockchain blockchain;
+
         void onTranstractionsFromMempool();
         std::string mine(blockchain::Block block);
         std::string getHash(std::string data);
         bool isValidateSignature(blockchain::Transtraction transtraction);
-                void sendBlockToBlockchain(blockchain::Block block);
+        void sendBlockToBlockchain(blockchain::Block block);
     };
 }

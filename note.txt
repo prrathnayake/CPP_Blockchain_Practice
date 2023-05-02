@@ -15,3 +15,6 @@ Minner
 Blockchain
 - get new block add andd to the chain
 - broadcast the update to other nodes
+
+every node (miners, wallets) need to have a copy of blockchain.
+every time new block added to the blockchain new block will validate using the other node's blockchain copy.

@@ -8,9 +8,9 @@
 #include "block.h"
 #include "memPool.h"
 
-void onTranstractionsFromMempool(){
-
-
+void blockchain::Miner::onTranstractionsFromMempool()
+{
+    // Todo : get transtraction from memPool and validate before add to the block
 }
 
 bool blockchain::Miner::isValidateSignature(blockchain::Transtraction transtraction)
@@ -54,7 +54,6 @@ std::string blockchain::Miner::mine(blockchain::Block block)
     }
 }
 
-
 std::string blockchain::Miner::getHash(std::string data)
 {
     unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -70,4 +69,8 @@ std::string blockchain::Miner::getHash(std::string data)
     }
     // Print the hash
     return hex_hash;
+}
+
+void blockchain::Miner::sendBlockToBlockchain(blockchain::Block block) {
+    // Todo : validated block send to the blockchain and broadcast update
 }

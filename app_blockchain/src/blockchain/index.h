@@ -5,4 +5,5 @@
 #include "wallet.h"
 #include "miner.h"
 #include "memPool.h"
-#include "coin.h"
+#include "coins/coin.h"
+#include "coins/cent.h"

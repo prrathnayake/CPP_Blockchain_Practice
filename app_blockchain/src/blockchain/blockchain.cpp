@@ -8,8 +8,6 @@
 
 blockchain::Blockchain::Blockchain()
 {
-    blockchain::Block genesisBlock;
-    hash = mine(genesisBlock);
 }
 
 void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)

@@ -6,10 +6,6 @@
 #include "block.h"
 #include "transtraction.h"
 
-blockchain::Blockchain::Blockchain()
-{
-}
-
 void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)
 {
     // if (transtraction.isValidateSignature())

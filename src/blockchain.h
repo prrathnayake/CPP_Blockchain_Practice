@@ -18,7 +18,6 @@ namespace blockchain
         blockchain::MemPool memPool;
 
     public:
-        Blockchain();
         void addNewTranstraction(blockchain::Transtraction transtraction);
         void addNewWallet(std::string wallet);
         void printBlockchain();

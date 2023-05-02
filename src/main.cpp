@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <blockchain/index.h>
+#include "index.h"
 
 int main()
 {

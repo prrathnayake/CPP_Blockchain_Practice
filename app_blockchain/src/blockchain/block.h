@@ -11,11 +11,12 @@ namespace blockchain
     {
     private:
         int nonce = 0;
-        std::string previousHash;
+        std::string previousHash = "";
         std::vector<blockchain::Transtraction> transtractions;
-        std::string timestamp;
+        std::string timestamp = "";
 
     public:
+        Block();
         Block(std::string previousHash, std::vector<blockchain::Transtraction> transtractions, std::string timestamp);
         std::string toString();
         int getNonce();

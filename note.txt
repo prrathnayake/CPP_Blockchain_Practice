@@ -1,0 +1,17 @@
+Wallet
+- create a Wallet
+- wallte can create transtractions and send them to the sendToMemPool
+
+Mempool
+- mempool get all transtractions from all wallets and store them
+- memPool send the existing transtraction to minners
+
+Minner
+- get transtractions from memPool and validate them by mining
+- create a block with validate transtractions and validate block and find the nonce value
+- validated block will send to the blockchain
+- remove added transtraction from the mempool
+
+Blockchain
+- get new block add andd to the chain
+- broadcast the update to other nodes

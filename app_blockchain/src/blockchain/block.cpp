@@ -2,6 +2,10 @@
 
 #include "block.h"
 
+blockchain::Block::Block()
+{
+}
+
 blockchain::Block::Block(std::string previousHash, std::vector<blockchain::Transtraction> transtractions, std::string timestamp)
 {
     this->previousHash = previousHash;

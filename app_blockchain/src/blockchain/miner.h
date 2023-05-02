@@ -14,9 +14,10 @@ namespace blockchain
         std::string publicKey;
 
     public:
-        std::map<int, blockchain::Transtraction> getPrndingTranstractionFromMemPool();
-        void minning();
-        void sendBlockToBlockchain(blockchain::Block block);
+        void onTranstractionsFromMempool();
+        std::string mine(blockchain::Block block);
+        std::string getHash(std::string data);
         bool isValidateSignature(blockchain::Transtraction transtraction);
+                void sendBlockToBlockchain(blockchain::Block block);
     };
 }

@@ -1,5 +1,6 @@
 #pragma once
-#include "block.h"
+#include "block/block.h"
+#include "block/header.h"
 #include "blockchain.h"
 #include "transtraction.h"
 #include "wallet.h"

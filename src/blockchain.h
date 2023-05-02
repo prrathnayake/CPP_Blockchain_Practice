@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include "block.h"
+#include "block/block.h"
 #include "wallet.h"
 #include "memPool.h"
 

@@ -5,7 +5,7 @@
 #include <openssl/sha.h>
 
 #include "miner.h"
-#include "block.h"
+#include "block/block.h"
 #include "memPool.h"
 
 void blockchain::Miner::onTranstractionsFromMempool()

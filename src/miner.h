@@ -2,7 +2,7 @@
 #include <iostream>
 #include <map>
 
-#include "block.h"
+#include "block/block.h"
 #include "blockchain.h"
 
 namespace blockchain

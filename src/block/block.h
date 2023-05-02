@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "block.h"
-#include "transtraction.h"
+#include "../transtraction.h"
 
 namespace blockchain
 {

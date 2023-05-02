@@ -3,7 +3,7 @@
 #include <openssl/sha.h>
 
 #include "blockchain.h"
-#include "block.h"
+#include "block/block.h"
 #include "transtraction.h"
 
 void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)

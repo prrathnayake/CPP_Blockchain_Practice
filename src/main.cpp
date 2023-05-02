@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "index.h"
+#include "wallet.h"
 
 int main()
 {

@@ -3,7 +3,6 @@
 #include <map>
 
 #include "transtraction.h"
-#include "blockchain.h"
 
 namespace blockchain
 {
@@ -15,7 +14,6 @@ namespace blockchain
     public:
         std::string name;
         std::string publicKey;
-        blockchain::Blockchain blockchain;
 
         Wallet(std::string name);
         std::map<std::string, std::string> generateKeyPair();

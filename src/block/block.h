@@ -3,17 +3,15 @@
 #include <vector>
 
 #include "block.h"
+#include "blockHeader.h"
 #include "../transtraction.h"
 
 namespace blockchain
 {
-    class Block
+    class Block : public BlockHeader
     {
     private:
-        int nonce = 0;
-        std::string previousHash = "";
         std::vector<blockchain::Transtraction> transtractions;
-        std::string timestamp = "";
 
     public:
         Block();

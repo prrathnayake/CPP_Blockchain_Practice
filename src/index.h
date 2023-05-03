@@ -9,3 +9,4 @@
 #include "coins/coin.h"
 #include "coins/cent.h"
 #include "utils/params.h"
+#include "crypto/rsa.h"

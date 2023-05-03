@@ -8,3 +8,4 @@
 #include "memPool.h"
 #include "coins/coin.h"
 #include "coins/cent.h"
+#include "utils/params.h"

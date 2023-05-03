@@ -10,3 +10,6 @@
 #include "coins/cent.h"
 #include "utils/params.h"
 #include "crypto/rsa.h"
+#include "files/ledger.h"
+#include "files/chainLedger.h"
+#include "files/memPoolLedger.h"

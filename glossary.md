@@ -1,5 +1,5 @@
 [preface]
-## Quick Glossary (from -[bitcoinbook](https://github.com/cypherpunks-core/bitcoinbook.git)))
+## Quick Glossary (from - [cypherpunks-core/bitcoinbook](https://github.com/cypherpunks-core/bitcoinbook.git)))
 
 This quick glossary contains many of the terms used in relation to bitcoin. These terms are used throughout the book, so bookmark this for a quick reference.
 

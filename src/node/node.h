@@ -1,21 +1,23 @@
 #pragma once
 #include <iostream>
-#include <map>
 
-#include "transtraction.h"
+#include "../blockchain.h"
+#include "../transtraction.h"
+#include "../memPool.h"
 
 namespace blockchain
 {
-    class Wallet
+    class Node
     {
     private:
         std::string privateKey;
 
     public:
-        std::string name;
         std::string publicKey;
-
-        Wallet(std::string name);
+        std::string name;
+        blockchain::MemPool memPool;
+        blockchain::Blockchain blockchain;
+        Node();
         void createTranstraction(std::string to, float amount);
     };
 }

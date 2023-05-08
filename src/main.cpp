@@ -1,11 +1,11 @@
 #include <iostream>
 
 #include "index.h"
-#include "wallet.h"
+#include "node/wallet.h"
 
 int main()
 {
-    blockchain::Wallet wallet("pasan");
+    blockchain::Wallet wallet;
     wallet.createTranstraction("" , 100.45);
 
     return 0;

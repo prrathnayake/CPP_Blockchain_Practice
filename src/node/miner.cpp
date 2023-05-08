@@ -5,8 +5,8 @@
 #include <openssl/sha.h>
 
 #include "miner.h"
-#include "block/block.h"
-#include "memPool.h"
+#include "../block/block.h"
+#include "../memPool.h"
 
 void blockchain::Miner::onTranstractionsFromMempool()
 {
@@ -71,6 +71,7 @@ std::string blockchain::Miner::getHash(std::string data)
     return hex_hash;
 }
 
-void blockchain::Miner::sendBlockToBlockchain(blockchain::Block block) {
+void blockchain::Miner::sendBlockToBlockchain(blockchain::Block block)
+{
     // Todo : validated block send to the blockchain and broadcast update
 }

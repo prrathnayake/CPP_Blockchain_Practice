@@ -2,21 +2,13 @@
 #include <iostream>
 #include <map>
 
-#include "block/block.h"
-#include "blockchain.h"
+#include "../block/block.h"
+#include "node.h"
 
 namespace blockchain
 {
-    class Miner
+    class Miner : public Node
     {
-    private:
-        std::string privateKey;
-
-    public:
-        std::string name;
-        std::string publicKey;
-        blockchain::Blockchain blockchain;
-
         void onTranstractionsFromMempool();
         std::string mine(blockchain::Block block);
         std::string getHash(std::string data);

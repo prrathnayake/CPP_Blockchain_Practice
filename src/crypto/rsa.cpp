@@ -48,7 +48,7 @@ std::string blockchain::CryptoRSA::generateSignature(std::string private_key, st
     BIO_free(bio);
 
     unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256(reinterpret_cast<const unsigned char *>(message.c_str()), data.size(), hash);
+    SHA256(reinterpret_cast<const unsigned char *>(message.c_str()), message.size(), hash);
 
     unsigned char signature_buf[RSA_size(rsa)];
     unsigned int signature_len;
@@ -64,7 +64,7 @@ std::string blockchain::CryptoRSA::generateSignature(std::string private_key, st
     return signature;
 }
 
-bool blockchain::CryptoRSA::validateSignature(std::string public_key, std::string message)
+bool blockchain::CryptoRSA::validateSignature(std::string public_key, std::string message, std::string signature)
 {
     RSA *rsa = RSA_new();
     BIO *bio = BIO_new_mem_buf(public_key.c_str(), -1);
@@ -76,7 +76,7 @@ bool blockchain::CryptoRSA::validateSignature(std::string public_key, std::strin
     SHA256(reinterpret_cast<const unsigned char *>(message.c_str()), message.size(), hash);
 
     // Verify the signature
-    int result = RSA_verify(NID_sha256, hash, SHA256_DIGEST_LENGTH, reinterpret_cast<const unsigned char *>(transtraction.signature.c_str()), transtraction.signature.size(), rsa);
+    int result = RSA_verify(NID_sha256, hash, SHA256_DIGEST_LENGTH, reinterpret_cast<const unsigned char *>(signature.c_str()), signature.size(), rsa);
     RSA_free(rsa);
     return result == 1;
 }

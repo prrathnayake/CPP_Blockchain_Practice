@@ -11,24 +11,6 @@ blockchain::Blockchain::Blockchain(){
     blocks.push_back(genesisBlock);
 }
 
-void blockchain::Blockchain::addNewTranstraction(blockchain::Transtraction transtraction)
-{
-    // if (transtraction.isValidateSignature())
-    // {
-    //     blockchain::Block block(hash, transtraction, "timestamp");
-    //     hash = mine(block);
-    // }
-    // else
-    // {
-    //     std::cout << "Transtraction is not valid\n";
-    // }
-}
-
-void blockchain::Blockchain::addNewWallet(std::string wallet)
-{
-    wallets.push_back(wallet);
-}
-
 void blockchain::Blockchain::printBlockchain()
 {
     std::cout << "\nBlockchain\n";

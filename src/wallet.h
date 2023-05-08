@@ -16,9 +16,6 @@ namespace blockchain
         std::string publicKey;
 
         Wallet(std::string name);
-        std::map<std::string, std::string> generateKeyPair();
         void createTranstraction(std::string to, float amount);
-        std::string generateSignature(std::string data);
-        void sendToMemPool(blockchain::Transtraction transtraction);
     };
 }

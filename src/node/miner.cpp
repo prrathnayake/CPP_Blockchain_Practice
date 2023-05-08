@@ -10,7 +10,7 @@
 
 void blockchain::Miner::onTranstractionsFromMempool()
 {
-    // Todo : get transtraction from memPool and validate before add to the block
+    // TODO : fetch Transtraction from memPool
 }
 
 bool blockchain::Miner::isValidateSignature(blockchain::Transtraction transtraction)
@@ -73,5 +73,5 @@ std::string blockchain::Miner::getHash(std::string data)
 
 void blockchain::Miner::sendBlockToBlockchain(blockchain::Block block)
 {
-    // Todo : validated block send to the blockchain and broadcast update
+    // TODO : broadcast validated block
 }

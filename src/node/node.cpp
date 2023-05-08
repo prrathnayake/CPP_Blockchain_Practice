@@ -17,5 +17,5 @@ blockchain::Node::Node()
 void blockchain::Node::createTranstraction(std::string to, float amount)
 {
     blockchain::Transtraction transtraction(publicKey, to, amount, blockchain::CryptoRSA::generateSignature(privateKey, (publicKey + to + std::to_string(amount))));
-    std::cout << "Transtraction send to the MemPool\n";
+    // TODO :: broadcast transtraction
 }

@@ -1,6 +1,5 @@
 #include <iostream>
 
-#include "index.h"
 #include "node/wallet.h"
 
 int main()
